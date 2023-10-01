@@ -1,0 +1,58 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #000000; 
+    opacity: 80%;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    width: 80vw;
+    border-radius: 10px;
+    background-image: url(../assenst/imgs/jake-weirick-Q_RBVFFXR_g-unsplash.jpg)
+}
+#container {
+    position: relative;
+    padding-left: 20%;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); 
+    gap: 20px; 
+    text-align: center;
+}
+img {
+    height: fit-content;
+    max-width: 100%;
+    height: auto;
+}
+
+.infobtn {
+    color: rgb(231, 74, 74);
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+  }
+  
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #828282;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  .dropdown-content a {
+    color: rgb(255, 255, 255);
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+.dropdown-content a:hover {background-color: #ff0000;}
+.dropdown:hover .dropdown-content {display: block;}
+.dropdown:hover .infobtn {background-color: #848484;}
