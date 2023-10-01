@@ -1,0 +1,68 @@
+<!DOCTYPE html >
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/style.css">
+    <title>Document</title>
+</head>
+<body onload="page1()">
+    <br>
+    <div id="navbar" >
+    <ul class="nav nav-pills nav-fill">
+    <li class="nav-item">
+    <a class="nav-link " href="#">home</a></li>
+    <li class="nav-item">
+    <a class="nav-link" href="singleMovie.html">about movies</a></li>
+    <li class="nav-item">
+    <a class="nav-link" href="#">Link</a></li>
+    <li class="nav-item">
+    <a class="nav-link disabled">Disabled</a></li></ul>
+    <div id="page">
+    </div>
+    <br>
+    <section aria-label="Newest Photos">
+    <div class="carousel" data-carousel>
+    <button class="carousel-button prev" data-carousel-button="prev">&#8656;</button>
+    <button class="carousel-button next" data-carousel-button="next">&#8658;</button>
+    <ul data-slides>
+    <li class="slider" data-active>
+    <img src="../assenst/imgs/pexels-adrien-olichon-3709371.jpg" alt="movies image #1" class="imgsSlider">
+    <div class="image-title">Title 1</div>
+    </li>
+    <li class="slider">
+    <img src="../assenst/imgs/pexels-luis-quintero-2774556.jpg" alt="movies image #2" class="imgsSlider">
+    <div class="image-title">Title 2</div>
+    </li>
+    <li class="slider">
+    <img src="../assenst/imgs/pexels-tima-miroshnichenko-7991579.jpg" alt="movies image #3" class="imgsSlider">
+    <div class="image-title">Title 3</div>
+    </li>
+    </ul>
+    </div>
+    </section>
+    <div id="sliderImages"></div>
+    <div id="thebuttondiv">
+    <form id="the_form">
+        <input type="text" placeholder="week/day" list="time" id="timing">
+        <div role="group" aria-label="Basic example" id="buttonss">
+        <button id="button1" class="btn btn-secondary">1</button>
+        <button id="button2" class="btn btn-secondary">2</button>
+        <button id="button3" class="btn btn-secondary">3</button>
+        <button id="button4" class="btn btn-secondary">4</button>
+        <button id="button5" class="btn btn-secondary">5</button>
+        </div>
+    <datalist id="time">
+    <option>week</option>
+    <option>day</option>
+    </datalist>
+    </form>
+    </div>
+    <div id="container">
+    </div></div>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+    <script src="../javascript/main.js"></script>
+</body>
+</html>
