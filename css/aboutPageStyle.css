@@ -1,0 +1,31 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #1e1e1e; 
+    opacity: 0.8;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 10px;
+}
+
+#imgAndTitle {
+}
+
+#imgAndTitle > #luffyh1 {
+    position: relative;
+    font-size: 15rem; 
+    margin-bottom: 20px;
+}
+
+#imgAndTitle > #luffyh1 > #luffyImg {
+    position: absolute;
+    width: 70%;
+    padding-left: 25%; 
+}
+
+span {
+    text-align: center;
+    margin-top: 20px; 
+}
