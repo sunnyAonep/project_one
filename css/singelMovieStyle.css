@@ -1,53 +1,118 @@
 body {
+    margin: 0;
+    background: linear-gradient(hsl(0, 0%, 100%), hsl(0, 0%, 29%));
+}
+#pageID{
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    margin: 0;
-    background: #555;
-    overflow: hidden;
+    width: 100vw;
 }
-
 #card {
-    height: 90vh;
-    width: 50vw;
-    background: linear-gradient(hsl(0, 9%, 79%), hsl(26, 55%, 72%));
+    position: relative;
+    height: 75vh;
+    width: 100vw;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    padding: 20px;
     border-radius: 10px;
     text-align: center;
 }
 
-h1 {
-    font-size: 24px;
-    color: #c50000;
-    margin: 0;
+#title {
+    position: absolute;
+    font-size: 35px;
+    color: #000000;
+    left: 2.5%;
+    width: 15%;
 }
 
 h2 {
     font-size: 18px;
-    color: #757575;
+    color: #000000;
     margin: 0;
 }
 
 p {
     font-size: 16px;
-    color: #555;
+    color: #000000;
     margin: 15px 0;
 }
 
 .runtime {
+    position: absolute;
+    left: 5%;
+    font-size: 30px;
+    bottom: 75%;
     font-weight: bold;
-    color: #333;
+    color: rgb(27, 27, 27);
 }
 
-img {
-    position: relative;
-    max-width: 100%;
-    height: 45%;
-    margin-top: 20px;
+#posterImg {
+    right: 0%;
+    position: absolute;
+    width: 15%;
+    height: 50%;
+    bottom: -1%;
 }
 #actors{
+    position: absolute;
+    bottom: 50%;
     overflow:auto;
-    height: 10vh;
+    height: 20vh;
+    width: 20%;
+}
+#trailer{
+    color: #333;
+    position: absolute;
+    bottom: 50%;
+    left: 20%;
+    height: 50%;
+    width: 80%;
+}
+.navbar {
+    position: relative;
+    display: flex;
+    width: 100%;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: justify;
+    padding: 0.5rem 1rem;
+    z-index: 1000;
+}
+#trailerVid{
+    height: 100%;
+    width: 100%;
+}
+#overview{
+ position: absolute;
+ bottom: 35%;
+ color: #000;
+ font-size: 20px;
+ width: 80%;
+ left: 3%;
+}
+#release_date{
+    position: absolute;
+    bottom: 85%;
+    left: 7%;
+
+}
+.nav-link {
+    display: block;
+    padding: 0.5rem 1rem;
+}
+a {
+    color: rgb(123, 123, 123);
+    text-decoration: none;
+    background-color: transparent;
+}
+
+a:hover {
+    color: #f7f7f7;
+    text-transform:capitalize;
+    text-decoration: underline;
+    text-shadow: 1px 1px 2px rgb(255, 255, 255), 0 0 1em blue
+}
+.nav-link:focus, .nav-link:hover {
+    text-decoration: none;
 }
