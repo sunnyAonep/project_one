@@ -1,9 +1,9 @@
 body {
     margin: 0;
     padding: 0;
-    background-color: #1e1e1e; 
+    background-color: #4d4d4d; 
     opacity: 0.8;
-    color: #fff;
+    color: #000000;
     display: flex;
     align-items: center;
     flex-direction: column;

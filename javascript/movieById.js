@@ -19,24 +19,29 @@
       .then(data => {
       console.log(data)
       userSingelMovie.innerHTML =""
-      userSingelMovie.innerHTML +=`
+      userSingelMovie.style = ` height: 0vh;
+      min-width: 0;`
+      theMovieById.innerHTML +=`
+      <div id="backgroundImage">
       <div id="card">
         <h1 id="title">${data.title}</h1>
-        <div id="trailer"></div>
-        <h2 id= "release_date">${data.release_date}</h2>
-        <p id="overview">${data.overview}</p>
-        <p class="runtime">${data.runtime} minutes</p>
-        <div id="actors"><button onclick = "addEventListenerToButton(${data.id});">like</button><h4>actors:</h4><div>
+        <div id="release_date_and_time"><p>${data.release_date}</p><p>${data.runtime} minutes</p></div>
+        <div id="likebutton"><button onclick = "addEventListenerToButton(${data.id});">like</button></div>
+        <div id = "geners"></div>
+        <div id="actorsTitle"><h4>actors:</h4>
+        <div id = "actors"></div>
         </div>
+        <div id = "overview"><p>${data.overview}</p></div>
+        </div></div>
         
       `
-      const csrdDiv = document.getElementById('card')
+      const generDiv = document.getElementById('geners')
+      const backimg = document.getElementById('backgroundImage')
         for(let i = 0 ; i < data.genres.length ;i++){ 
-          csrdDiv.innerHTML +=`<span> ${data.genres[i].name} </span>`
+          generDiv.innerHTML +=`<span> ${data.genres[i].name} </span>`
       }
-      csrdDiv.innerHTML +=` 
-      <br>
-      <img src="http://image.tmdb.org/t/p/w500${data.poster_path}" id="posterImg">`
+      backimg.innerHTML +=`
+      <img src="http://image.tmdb.org/t/p/w500${data.backdrop_path}" id="posterImg">`
 
       fetch(`https://api.themoviedb.org/3/movie/${id}/credits?language=en-US`, options)
         .then(response => response.json())
@@ -49,14 +54,14 @@
           console.log(data)})
         .catch(err => console.error(err));
  
-        fetch(`https://api.themoviedb.org/3/movie/${id}/videos?language=en-US`, options)
-        .then(response => response.json())
-        .then(data => {
-          let trailerOfMovie = document.getElementById("trailer")
-          trailerOfMovie.innerHTML += `
-          <iframe src="https://www.youtube-nocookie.com/embed/${data.results[0].key}?si=4ZJBUdvHa240g8LV" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen id="trailerVid"></iframe>`
-          console.log(data)})
-        .catch(err => console.error(err));
+        // fetch(`https://api.themoviedb.org/3/movie/${id}/videos?language=en-US`, options)
+        // .then(response => response.json())
+        // .then(data => {
+        //   let trailerOfMovie = document.getElementById("trailer")
+        //   trailerOfMovie.innerHTML += `
+        //   <iframe src="https://www.youtube-nocookie.com/embed/${data.results[0].key}?si=4ZJBUdvHa240g8LV" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen id="trailerVid"></iframe>`
+        //   console.log(data)})
+        // .catch(err => console.error(err));
         
        })
      

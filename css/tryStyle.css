@@ -57,3 +57,14 @@ li {
     display: list-item;
     text-align: -webkit-match-parent;
 }
+
+#title {
+    position: absolute;
+    --font-bold: 700;
+    font-weight: var(--font-bold);
+    font-size: 56px;
+    color: #ffffff;
+    left: 2.5%;
+    top: 2.5%; 
+    width: 25%;
+}
