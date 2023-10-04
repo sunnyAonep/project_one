@@ -1,3 +1,10 @@
+  let movies1 = []
+  const storageVal =localStorage.getItem("movies")
+  console.log(JSON.parse(storageVal));
+  if(storageVal !== null){
+    movies1 = JSON.parse(storageVal);
+  }
+   
    function movieByName(name ){ 
     const options = {
       method: 'GET',
@@ -24,6 +31,7 @@
         <p>vote: ${data.results[i].vote_average}/10</p>
         <p>release date : ${data.results[i].release_date}</p>
         <p>sells : $${data.results[i].popularity} million </p>
+        <button onclick = "addEventListenerToButton(${data.results[i].id});">like</button>
         </div>
         </div>
         <div>
@@ -40,4 +48,9 @@
         movieByName(movieNameInput)
       }
     })
-  
+    function addEventListenerToButton(id) {
+      let movisObject = {id}
+      movies1.push(movisObject)
+      console.log(movies1);
+     localStorage.setItem("movies" , JSON.stringify(movies1))
+  } 

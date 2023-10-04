@@ -2,13 +2,13 @@
 body {
     margin: 0;
     padding: 0;
-    background-color: #6a6a6a; 
     color: #ffffff;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     border-radius: 10px;
+    background-attachment: fixed;
 }
 #the_form{
     display: flex;

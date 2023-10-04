@@ -1,3 +1,10 @@
+  let movies1 = []
+  const storageVal =localStorage.getItem("movies")
+  console.log(JSON.parse(storageVal));
+   if(storageVal !== null){
+   movies1 = JSON.parse(storageVal);
+   }
+  
   function getIdByUser(id){ 
     const options = {
       method: 'GET',
@@ -19,8 +26,9 @@
         <h2 id= "release_date">${data.release_date}</h2>
         <p id="overview">${data.overview}</p>
         <p class="runtime">${data.runtime} minutes</p>
-        <div id="actors"><h4>actors:</h4><div>
+        <div id="actors"><button onclick = "addEventListenerToButton(${data.id});">like</button><h4>actors:</h4><div>
         </div>
+        
       `
       const csrdDiv = document.getElementById('card')
         for(let i = 0 ; i < data.genres.length ;i++){ 
@@ -51,10 +59,15 @@
         .catch(err => console.error(err));
         
        })
-
      
       .catch(err => console.error(err));
     }
+    function addEventListenerToButton(id) {
+      let movisObject = {id}
+      movies1.push(movisObject)
+      console.log(movies1);
+     localStorage.setItem("movies" , JSON.stringify(movies1))
+  } 
     btnId.addEventListener('click' , (e) =>{
       e.preventDefault();
       let idVul = imgsId.value;
