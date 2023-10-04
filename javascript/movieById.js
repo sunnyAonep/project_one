@@ -1,8 +1,8 @@
-  let movies1 = []
+  let moviseWishlist = []
   const storageVal =localStorage.getItem("movies")
   console.log(JSON.parse(storageVal));
    if(storageVal !== null){
-   movies1 = JSON.parse(storageVal);
+   moviseWishlist = JSON.parse(storageVal);
    }
   
   function getIdByUser(id){ 
@@ -26,7 +26,7 @@
       <div id="card">
         <h1 id="title">${data.title}</h1>
         <div id="release_date_and_time"><p>${data.release_date}</p><p>${data.runtime} minutes</p></div>
-        <div id="likebutton"><button onclick = "addEventListenerToButton(${data.id});">like</button></div>
+        <div id="likebutton"><button onclick = "saveValButton(${data.id});">like</button></div>
         <div id = "geners"></div>
         <div id="actorsTitle"><h4>actors:</h4>
         <div id = "actors"></div>
@@ -67,12 +67,17 @@
      
       .catch(err => console.error(err));
     }
-    function addEventListenerToButton(id) {
+    function saveValButton(id) {
       let movisObject = {id}
-      movies1.push(movisObject)
-      console.log(movies1);
-     localStorage.setItem("movies" , JSON.stringify(movies1))
-  } 
+      const existingMovie = moviseWishlist.find(movie => movie.id === id);
+      if (existingMovie) {
+      console.log('already exists');
+       } else {
+    moviseWishlist.push(movisObject);
+    localStorage.setItem("movies", JSON.stringify(moviseWishlist));
+    console.log(moviseWishlist);
+    }
+   }
     btnId.addEventListener('click' , (e) =>{
       e.preventDefault();
       let idVul = imgsId.value;

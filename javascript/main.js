@@ -3,11 +3,11 @@ const btn2 = document.getElementById("button2")
 const btn3 = document.getElementById("button3")
 const btn4 = document.getElementById("button4")
 const btn5 = document.getElementById("button5")
-let movies1 = []
+let moviseWishlist = []
 const storageVal =localStorage.getItem("movies")
 console.log(JSON.parse(storageVal));
 if(storageVal !== null){
-  movies1 = JSON.parse(storageVal);
+  moviseWishlist = JSON.parse(storageVal);
 }
 const backGround = document.body
 const moviesPages = (time = "day" , pages = 1) =>{
@@ -63,7 +63,7 @@ const options = {
         <img id='imgStyle' src = "http://image.tmdb.org/t/p/w500${data.results[i].poster_path}">
         <span>${data.results[i].original_title}</span>
         <br>
-        <button onclick = "addEventListenerToButton(${data.results[i].id});" id= 'likeBtn'>
+        <button onclick = "saveValButton(${data.results[i].id});" id= 'likeBtn'>
         <img src="../assenst/icons/like.png" alt="buttonpng" border="0" />
         </button>
         <div>
@@ -74,12 +74,17 @@ const options = {
     })
     .catch(err => console.log(err));
   }
-  function addEventListenerToButton(id) {
+  function saveValButton(id) {
     let movisObject = {id}
-    movies1.push(movisObject)
-    console.log(movies1);
-   localStorage.setItem("movies" , JSON.stringify(movies1))
-} 
+    const existingMovie = moviseWishlist.find(movie => movie.id === id);
+    if (existingMovie) {
+    console.log('already exists');
+     } else {
+  moviseWishlist.push(movisObject);
+  localStorage.setItem("movies", JSON.stringify(moviseWishlist));
+  console.log(moviseWishlist);
+  }
+ }
 
    moviesPages()
   btn1.addEventListener('click' , (e)=>{

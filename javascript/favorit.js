@@ -1,10 +1,10 @@
-let movies1 = []
+let moviseWishlist = []
 const storageVal =localStorage.getItem("movies")
  if(storageVal !== null){
- movies1 = JSON.parse(storageVal);
+ moviseWishlist = JSON.parse(storageVal);
  }
 
- console.log(movies1);
+ console.log(moviseWishlist);
 
  function getIdByUser(id){ 
     const options = {
@@ -28,13 +28,13 @@ const storageVal =localStorage.getItem("movies")
       .catch(err => console.error(err));
     }
 
-    for(let i = 0 ; i<movies1.length ; i++){
-        getIdByUser(movies1[i].id)
+    for(let i = 0 ; i<moviseWishlist.length ; i++){
+        getIdByUser(moviseWishlist[i].id)
     }
     function ButtonRemove() {
       if(removeBtn){
         if(confirm('if you really want to remove all press ok')){
-          localStorage.removeItem("movies" , JSON.stringify(movies1))
+          localStorage.removeItem("movies" , JSON.stringify(moviseWishlist))
            window.location = ''
         }
         return

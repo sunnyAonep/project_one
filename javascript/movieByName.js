@@ -1,8 +1,8 @@
-  let movies1 = []
+  let moviseWishlist = []
   const storageVal =localStorage.getItem("movies")
   console.log(JSON.parse(storageVal));
   if(storageVal !== null){
-    movies1 = JSON.parse(storageVal);
+    moviseWishlist = JSON.parse(storageVal);
   }
    
    function movieByName(name ){ 
@@ -19,11 +19,14 @@
       console.log(data)
       if(data.total_results > 0){ 
         inputContain.innerHTML =''
+        inputContain.style = `
+        height: 0;
+        width: 0;`
       for (let i = 0; i < data.results.length; i++) {
         const movies = data.results[i];
         container.innerHTML += `
         <div id = img>
-        <img src = "http://image.tmdb.org/t/p/w500${data.results[i].poster_path}">
+        <img src = "http://image.tmdb.org/t/p/w500${data.results[i].poster_path}" id='posterImg'>
         <div class="dropdown">
         <button class="infobtn">info</button>
         <div class="dropdown-content">
@@ -31,7 +34,9 @@
         <p>vote: ${data.results[i].vote_average}/10</p>
         <p>release date : ${data.results[i].release_date}</p>
         <p>sells : $${data.results[i].popularity} million </p>
-        <button onclick = "addEventListenerToButton(${data.results[i].id});">like</button>
+        <button onclick = "saveValButton(${data.results[i].id});" id= 'likeBtn'>
+        <img src="../assenst/icons/like.png" alt="buttonpng" border="0" />
+        </button>
         </div>
         </div>
         <div>
@@ -48,9 +53,14 @@
         movieByName(movieNameInput)
       }
     })
-    function addEventListenerToButton(id) {
+    function saveValButton(id) {
       let movisObject = {id}
-      movies1.push(movisObject)
-      console.log(movies1);
-     localStorage.setItem("movies" , JSON.stringify(movies1))
-  } 
+      const existingMovie = moviseWishlist.find(movie => movie.id === id);
+      if (existingMovie) {
+      console.log('already exists');
+       } else {
+    moviseWishlist.push(movisObject);
+    localStorage.setItem("movies", JSON.stringify(moviseWishlist));
+    console.log(moviseWishlist);
+    }
+   }
