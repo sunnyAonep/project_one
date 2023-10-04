@@ -8,6 +8,7 @@ body {
     position: relative;
 }
 #userSingelMovie {
+    color: #f7f7f7;
     height: 75vh;
     min-width: 100%;
     display: flex;
@@ -103,14 +104,6 @@ button:hover{
     font-size: 14px;
     max-width: 600px;
 }
-
-
-
-
-
-
-
-
 .navbar {
     position: absolute;
     display: flex;

@@ -31,4 +31,12 @@ const storageVal =localStorage.getItem("movies")
     for(let i = 0 ; i<movies1.length ; i++){
         getIdByUser(movies1[i].id)
     }
-    
+    function ButtonRemove() {
+      if(removeBtn){
+        if(confirm('if you really want to remove all press ok')){
+          localStorage.removeItem("movies" , JSON.stringify(movies1))
+           window.location = ''
+        }
+        return
+   }
+      } 

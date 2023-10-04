@@ -22,20 +22,55 @@ const options = {
     .then(response => response.json())
     .then(data => {
       console.log(data)
+      const moviesSlider = document.getElementById('sliderImages')
+      moviesSlider.innerHTML = `
+    <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+    <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+    <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+    <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+    <div class="carousel-item active imgOne">
+    <img src="http://image.tmdb.org/t/p/w500${data.results[5].backdrop_path}" class="d-block w-100 " >
+    <div class="carousel-caption d-none d-md-block">
+    <h5>${data.results[5].original_title}</h5>
+    <p>${data.results[5].overview}</p>
+    </div></div>
+    <div class="carousel-item imgOne">
+    <img src="http://image.tmdb.org/t/p/w500${data.results[1].backdrop_path}" class="d-block w-100  " >
+    <div class="carousel-caption d-none d-md-block">
+    <h5>${data.results[1].original_title}</h5>
+    <p>${data.results[1].overview}</p>
+    </div></div><div class="carousel-item imgOne">
+    <img src="http://image.tmdb.org/t/p/w500${data.results[2].backdrop_path}" class="d-block w-100" alt="...">
+    <div class="carousel-caption d-none d-md-block">
+    <h5>${data.results[2].original_title}</h5>
+    <p>${data.results[2].overview}.</p>
+    </div></div></div>
+    <button class="carousel-control-prev" type="button" data-target="#carouselExampleCaptions" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    </button>
+    <button class="carousel-control-next" type="button" data-target="#carouselExampleCaptions" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+     </button>
+     </div>
+      `
       for (let i = 0; i < data.results.length; i++) {
         const movies = data.results[i];
         container.innerHTML += `
-        <div id = img>
-        <img src = "http://image.tmdb.org/t/p/w500${data.results[i].poster_path}">
+        <div>
+        <img id='imgStyle' src = "http://image.tmdb.org/t/p/w500${data.results[i].poster_path}">
         <span>${data.results[i].original_title}</span>
         <br>
-        <button onclick = "addEventListenerToButton(${data.results[i].id});">like</button>
-        <button onclick = "addEventListenerToButtonRemove();">remove</button>
+        <button onclick = "addEventListenerToButton(${data.results[i].id});" id= 'likeBtn'>
+        <img src="../assenst/icons/like.png" alt="buttonpng" border="0" />
+        </button>
         <div>
        `
        console.log(movies);        
       }
-      backGround.style.backgroundImage = `url("http://image.tmdb.org/t/p/w500${data.results[0].poster_path}")`
+      backGround.style.backgroundImage = `url("http://image.tmdb.org/t/p/w500${data.results[0].backdrop_path}")`
     })
     .catch(err => console.log(err));
   }
@@ -45,10 +80,6 @@ const options = {
     console.log(movies1);
    localStorage.setItem("movies" , JSON.stringify(movies1))
 } 
-  function addEventListenerToButtonRemove() {
-  localStorage.removeItem("movies" , JSON.stringify(movies1))
-  } 
-
 
    moviesPages()
   btn1.addEventListener('click' , (e)=>{

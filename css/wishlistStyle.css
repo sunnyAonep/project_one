@@ -27,3 +27,28 @@ a:hover {
 .nav-link:focus, .nav-link:hover {
     text-decoration: none;
 }
+#myfavorit {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px;
+  }
+  
+  .wishlist-item {
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    max-width: 300px;
+  }
+  #title {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 10px 0;
+  }
+
+  #posterImg {
+    max-width: 100%;
+    height: auto;
+  }
