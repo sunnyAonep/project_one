@@ -3,8 +3,7 @@ const storageVal =localStorage.getItem("movies")
  if(storageVal !== null){
  moviseWishlist = JSON.parse(storageVal);
  }
-
- console.log(moviseWishlist);
+console.log(moviseWishlist);
 
  function getIdByUser(id){ 
     const options = {
@@ -19,11 +18,16 @@ const storageVal =localStorage.getItem("movies")
       .then(response => response.json())
       .then(data => {
       console.log(data)
-      myfavorit.innerHTML +=`
-      <div>
-      <h1 id="title">${data.title}</h1>
-      <img src="http://image.tmdb.org/t/p/w500${data.poster_path}" id="posterImg">
-      <div>`
+      userWatchlist.innerHTML +=`
+      <div class= 'card'>
+      <div class = anotherAnim>
+      <img src="http://image.tmdb.org/t/p/w500${data.backdrop_path}" id="posterImg">
+      <div class= 'underCard'>
+      <h1 class="title">${data.title}</h1>
+      <div class= 'underTitleCard'>
+      <p>${data.release_date}</p>
+      <span>${data.vote_average} / 10</span></div>
+      </div></div></div>`
       })     
       .catch(err => console.error(err));
     }
@@ -40,3 +44,4 @@ const storageVal =localStorage.getItem("movies")
         return
    }
       } 
+    
