@@ -201,3 +201,6 @@ ul li.active{
   margin-left: 15px;
   transform: rotate(180deg);
 }
+.navbar-brand{
+  width: 5%;
+}

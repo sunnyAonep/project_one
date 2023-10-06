@@ -181,3 +181,6 @@ a:hover {
 .nav-item:hover::after{
   transform: scaleX(1);
 }
+.navbar-brand{
+  width: 5%;
+}
